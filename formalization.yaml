@@ -1,0 +1,102 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Nelder–Mead converges on x² + y² (McKinnon's question)"
+  description: >-
+    The original Nelder–Mead method, including expansion steps (Algorithm NM of Lagarias, Reeds, Wright and
+    Wright 1998, standard coefficients and tie-breaking), started from any nondegenerate triangle, produces
+    triangles whose three vertices all converge to the minimizer of f(x, y) = x² + y². This answers the first
+    part of McKinnon's question as stated open in Lagarias, Poonen and Wright (arXiv:1104.0350, Section 4).
+    The proof is a potential argument whose key recovery property is established by a computer-generated
+    certificate (a k-d partition of the normalized far states with exact recovery trees and Farkas certificates),
+    checked by the Lean kernel through a checker whose soundness is proved in Lean.
+  authors: ["Gabriel Alan Mack"]
+  responsible_maintainers: ["Gabriel Alan Mack"]
+  license: "Apache-2.0"
+
+sources:
+  - title: "Nelder–Mead converges on x² + y²: a Lean-verified answer to McKinnon's question"
+    type: "original-proof"
+    relationship: "other"
+    note: >-
+      First presentation of this result. The proof was found by an AI research agent (see automation); the
+      informal account is PROOF.md.
+  - title: "Convergence of the restricted Nelder–Mead algorithm in two dimensions"
+    authors: ["Jeffrey C. Lagarias", "Bjorn Poonen", "Margaret H. Wright"]
+    id: "arXiv:1104.0350; SIAM J. Optim. 22 (2012) 501–532"
+    type: "paper"
+    location: "Section 4 (McKinnon's question)"
+    relationship: "background"
+    note: "Poses the question answered here and proves convergence of the restricted method (no expansions)."
+    author_endorsement: "other"
+  - title: "Convergence properties of the Nelder–Mead simplex method in low dimensions"
+    authors: ["Jeffrey C. Lagarias", "James A. Reeds", "Margaret H. Wright", "Paul E. Wright"]
+    id: "SIAM J. Optim. 9 (1998) 112–147"
+    type: "paper"
+    location: "Algorithm NM (definition of the method formalized as NM.step)"
+    relationship: "background"
+    author_endorsement: "other"
+
+related_formalizations: []
+
+classification:
+  arxiv: ["math.OC", "math.NA"]
+  msc2020: ["90C56", "65K05", "49M30"]
+
+status:
+  scope: "Complete for f = x² + y² (the first part of the question); the general class of Theorem 3.17 is not addressed."
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "NM.mckinnon_x2y2"
+      file: "Proof.lean (release asset; built by assemble.sh from lean/ and the certificate data)"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "autonomous"
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        A shell orchestrator runs Claude Code sessions back to back with a fixed prompt: choose an open
+        conjecture with a practical use, check it is still open (literature and Palomar), explore in Julia, and
+        verify the final result in Lean 4 with Mathlib (no sorry, only propext / Classical.choice / Quot.sound).
+        The session that produced this result chose the problem, designed the certificate, ran the Julia search
+        and wrote the Lean checker and its soundness proof.
+      cost:
+        wall_time: "about 15 days for the producing session, including a 25.6 h final kernel check"
+        hardware: "API model; a 12-core workstation CPU (at most 8 cores, 40 GB RAM) for Julia and Lean"
+      prompting_notes: >-
+        The operator did not suggest the problem, the proof idea or any Lean code. The session was resumed
+        three times after interruptions (out of memory, usage limit, expired login).
+  spend_usd: "subscription-based usage"
+  notes: "The human operator (Gabriel Mack) is not a mathematician and did not write the mathematics."
+
+fidelity:
+  divergences: >-
+    The method is stated on sorted triangles (vertices ordered by f, LRWW tie-breaking); mckinnon_x2y2' covers
+    an arbitrary nondegenerate triangle via sort3. Shrink steps are defined as in LRWW although they never occur
+    for this function. The extension to all positive-definite quadratics (affine invariance) is a remark, not
+    formalized.
+
+review:
+  status: "agent-reviewed"
+  reviewers: ["Independent Claude Code session (Claude Opus 5.5), distinct from the producing session"]
+  notes: >-
+    The reviewing session checked the definition of step against Algorithm NM of LRWW 1998, scanned Proof.lean
+    for sorry, native_decide, admit, custom axioms and unsafe code, and confirmed the #print axioms output of the
+    full 25.6 h compile. No human mathematician has reviewed the proof.
+
+alignment:
+  namespace: "NM"
+  statements:
+    - source: "arXiv:1104.0350, Section 4 (McKinnon's question, case f = x² + y²)"
+      lean: "NM.mckinnon_x2y2"
+      module: "Proof"
+      status: "proved"
+
+acknowledgements: "Mathlib, Lean, JuMP, HiGHS."
