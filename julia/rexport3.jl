@@ -1,5 +1,5 @@
-# rexport3.jl — exact recovery-tree certificates for the Lean checker NMR3.chkRT3 (RecCert3.lean): explicit steps,
-# generic neutral-word runs (grun) and exact cycle runs (gcyc), searched like tmp/rtree5_core.jl (tree5) but with
+# rexport3.jl — exact recovery-tree certificates for the Lean checker NMR3.chkRT3 (lean/RecCert5.lean): explicit steps,
+# generic neutral-word runs (grun) and exact cycle runs (gcyc), searched like rtree5_core.jl (tree5) but with
 # exact integer data and exact certificates.  Tree format:
 #   (:leaf, den, rn, rd, y1, p1, y2, p2) | (:node, [child × 9])
 #   child = (:inf, ys, prs) | (:sub, tree) | (:skip,) | (:grun, P, fs, ld, ly, lp, [piece-child × 26PL]) | (:gcyc, P, [piece-child × PL])
@@ -24,7 +24,7 @@ repRow(np, row) = [row[q % np + 1] for q in 0:3np-1]
 onParts(fs, ps) = [[comb5(f, W) for W in ps] for f in fs]
 upC(ks) = sum(eUp(k) for k in ks; init = 0); dnC(ks) = sum(eDn(k) for k in ks; init = 0)
 
-# ---- run data (mirror of RunGen/RunExit/RecCert3) ----
+# ---- run data (mirror of RunGen/RunExit/RecCert5) ----
 wFull(P) = walkParts(P, [W0])[1]
 function nilOK(W, s)
     W[1][1] == s && W[1][2] == 0 && W[2][1] == 0 && W[2][2] == s &&

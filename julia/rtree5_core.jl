@@ -1,4 +1,4 @@
-# Recovery trees with GENERIC neutral-word runs in the exact form checked by Lean (RecCert3).
+# Recovery trees with GENERIC neutral-word runs in the exact form checked by Lean (lean/RecCert5.lean).
 # Pattern P (length PL) with α_P = 1 and M_P = I + N, N acting on Δ only and depending on D only (N² = 0).
 # A run node is the child of branch P[1] at a node with state z.  The maximal run follows P for q ≥ 0 full periods
 # and then deviates at phase r: with u = z + q N z, the exit state is Pre_r(u), r ∈ 1..PL (r = PL: deviation at phase 0

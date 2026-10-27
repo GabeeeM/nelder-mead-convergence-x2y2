@@ -1,4 +1,4 @@
-# rexport.jl — exact recovery-tree certificates for the Lean checker NMR.chkRT (Scratch/RecCert.lean).
+# rexport.jl — exact recovery-tree certificates for the Lean checker NMR.chkRT (lean/RecCert.lean).
 # For a cell (IBox on the grid G = 4096) we rebuild its recovery tree in exact integer arithmetic:
 #   W   : five integer functionals of z0 tracking the current state (16^j-scaled), W0 = identity;
 #   rows: integer functionals of z0 that are ≥ 0 on the path (branch conjuncts composed through W);

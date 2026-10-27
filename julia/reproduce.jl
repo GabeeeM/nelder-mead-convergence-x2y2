@@ -9,7 +9,7 @@
 # (see NOTES.md for the order and the input cell lists):
 #   tmp/rex_certs.jls   rexport_run.jl  (old run trees, rexport2 format)
 #   tmp/rc5_certs.jls   rcert5.jl       tmp/rc6_certs.jls  rcert6.jl      tmp/rc8_certs.jls  rcert8.jl
-#   tmp/rc7, rc9 … rc15 tmp/rcert9.jl … tmp/rcert15.jl (re-certification of the remaining cells)
+#   tmp/rc7_certs.jls   tmp/rcert7.jl;   tmp/rc9 … rc15  tmp/rcert9.jl … tmp/rcert15.jl (re-certification of the remaining cells)
 # Every number below is printed by this script:
 #   records per stream, unreadable segments, entries, overlap drops, certified leaves, k-d tree leaves,
 #   uncovered regions (must be 0), number of Lean chunks; and the declaration counts of the Lean data.

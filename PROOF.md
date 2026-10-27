@@ -95,6 +95,6 @@ entirely — each cell's tree is exact, and only the leaf inequality is checked.
 See the README. In short: `julia --project=julia julia/reproduce.jl` reads the certificate streams
 `tmp/*_certs.jls`, prints every number above and writes `tmp/data_final9.lean` (a fresh run regenerated it
 byte-identically, 2026-10-27); `./assemble.sh tmp/data_final9.lean Proof.lean` builds the single Lean file;
-`lake env lean Proof.lean` checks it. Verification run (2026-10-26/27): single-threaded, 25.6 h wall time,
+`lake env lean Proof.lean` checks it. Verification run (2026-10-25 to 2026-10-27, Berlin time): single-threaded, 25.6 h wall time,
 peak RSS ≈ 35.7 GB (33.2 GiB), 673 batches, no errors; output ends with
 `'NM.mckinnon_x2y2' depends on axioms: [propext, Classical.choice, Quot.sound]` (same for `mckinnon_x2y2'`).
