@@ -37,7 +37,7 @@ f(ic) < f(p3); shrink otherwise; a new vertex is inserted after vertices with eq
    λ = D₁₂+D₁₃+D₂₃ → 0 (`B1`, `B2`, `lam_to_zero`). If the limit value f* were positive, the triangle would
    eventually be tiny compared with its distance from the minimizer: f₁ ≥ K·λ ("far region"),
    K = 169 869 312.
-3. **Potential and recovery.** P = A^{4/5} / max(T, 5λ)^{7/10} (A = area, T = (f₃ − f₁) + λ); equivalently
+3. **Potential and recovery.** P = A^{4/5} / max(T, 5λ)^{7/10} (A = twice the area, T = (f₃ − f₁) + λ); equivalently
    P = A^{4/5} λ^{−7/10} min(λ/T, 1/5)^{7/10}. Since A ≤ λ, P ≤ (λ/5⁷)^{1/10} → 0. The key property is
    **recovery**: from every far state, the potential returns to at least its current value after finitely many
    steps (it may first dip — e.g. along chains of outside contractions — but always recovers). Then along
@@ -96,5 +96,5 @@ See the README. In short: `julia --project=julia julia/reproduce.jl` reads the c
 `tmp/*_certs.jls`, prints every number above and writes `tmp/data_final9.lean` (a fresh run regenerated it
 byte-identically, 2026-10-27); `./assemble.sh tmp/data_final9.lean Proof.lean` builds the single Lean file;
 `lake env lean Proof.lean` checks it. Verification run (2026-10-26/27): single-threaded, 25.6 h wall time,
-peak RSS ≈ 34.9 GB, 673 batches, no errors; output ends with
+peak RSS ≈ 35.7 GB (33.2 GiB), 673 batches, no errors; output ends with
 `'NM.mckinnon_x2y2' depends on axioms: [propext, Classical.choice, Quot.sound]` (same for `mckinnon_x2y2'`).

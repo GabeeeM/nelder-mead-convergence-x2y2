@@ -1,7 +1,7 @@
 # final_build9.jl — as final_build5 (split9 emission). Assemble the Lean data for NMR3.nm_converges_of_reccert3 from the exact certificate streams
 # (old rexport2 trees and rexport3 trees share the RT3 token format): k-d tree over rootBox with hole leaves,
 # chunks of ≤ CH leaves checked by `decide +kernel`, composed with walkR3_node.
-# usage: julia final_build3.jl OUT.lean stream1.jls stream2.jls ...
+# usage: julia final_build9.jl OUT.lean stream1.jls stream2.jls ...   (normally called via reproduce.jl)
 include("rexport3.jl"); include("remit5.jl"); include("split9.jl")
 using Serialization, Printf, Mmap
 loadtree(r) = (open(r[1]) do io; seek(io, r[2] - 1); deserialize(IOBuffer(read(io, r[3] - r[2] + 1)))[2]; end)

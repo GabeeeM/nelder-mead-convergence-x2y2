@@ -1,11 +1,12 @@
 # reproduce.jl — reproduces every number reported in PROOF.md from the exact certificate streams, and rebuilds
 # the Lean certificate data that Proof.lean checks.
 #
-#   julia --project=env reproduce.jl            # stream statistics + k-d coverage + Lean data (tmp/data_final9.lean)
-#   then: ./assemble6.sh tmp/data_final9.lean Proof.lean   and compile Proof.lean (see PROOF.md)
+#   julia --project=julia julia/reproduce.jl   # run from the repo root: stream statistics + k-d coverage + Lean data (tmp/data_final9.lean)
+#   then: ./assemble.sh tmp/data_final9.lean Proof.lean   and compile Proof.lean (see README.md)
 #
-# Certificate streams (Julia serialization, (IBox, tree) or (IBox, :empty) records), produced by the search drivers
-# (all resumable; see NOTES.md for the order and the input cell lists):
+# Certificate streams (Julia serialization, (IBox, tree) or (IBox, :empty) records), shipped in certificates.tar.zst
+# (release v1.0). They were produced by these search drivers, which are not included in this repository
+# (see NOTES.md for the order and the input cell lists):
 #   tmp/rex_certs.jls   rexport_run.jl  (old run trees, rexport2 format)
 #   tmp/rc5_certs.jls   rcert5.jl       tmp/rc6_certs.jls  rcert6.jl      tmp/rc8_certs.jls  rcert8.jl
 #   tmp/rc7, rc9 … rc15 tmp/rcert9.jl … tmp/rcert15.jl (re-certification of the remaining cells)

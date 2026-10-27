@@ -517,5 +517,5 @@ Order f1 ≤ f2 ≤ f3; c = (p1+p2)/2; r = 2c − p3.
   tail with a flat checkpoint every 16 links (deep trees up to 1252 levels: per-node check 12 s → ≤ 1.5 s).
   Bug found by the shard pre-check: decRS could not read expression-defined row stores (run pieces' R2) — fixed.
 - VERIFIED (2026-10-27): Proof.lean (1.58 GB, assemble6.sh from tmp/data_final9.lean) compiled with
-  `lake env lean Proof.lean` in 25.6 h single-threaded, peak RSS ≈ 34.9 GB, 0 errors;
+  `lake env lean Proof.lean` in 25.6 h single-threaded, peak RSS ≈ 35.7 GB (33.2 GiB; the log reports KiB), 0 errors;
   `#print axioms NM.mckinnon_x2y2` → [propext, Classical.choice, Quot.sound]. CONJECTURES.md entry appended.
