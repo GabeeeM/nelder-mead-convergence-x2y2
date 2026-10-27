@@ -60,8 +60,9 @@ The check is single-threaded and took 25.6 hours with a peak of about 36 GB RAM 
 ```
 
 There is no `sorry`, `native_decide` or custom axiom. The certificate is checked with `decide +kernel`.
-Meta-level loader code (`lean/LoaderR5.lean`, `lean/LoaderR6.lean`) only builds terms: every value it
-computes is stored as a literal whose defining equation the kernel checks by `Eq.refl`.
+Meta-level loader code (`lean/LoaderR5.lean`, `lean/LoaderR6.lean`) only builds terms: `LoaderR5` turns the
+certificate text into definitions, which the kernel then checks with `decide +kernel`, and every intermediate
+state `LoaderR6` computes is stored as a literal whose defining equation the kernel checks by `Eq.refl`.
 
 ### Rebuilding Proof.lean from the certificates
 
