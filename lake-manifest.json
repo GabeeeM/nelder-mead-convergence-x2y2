@@ -91,6 +91,6 @@
    "inputRev": "v4.35.0-rc4",
    "inherited": true,
    "configFile": "lakefile.toml"}],
- "name": "mb",
+ "name": "NelderMeadX2Y2",
  "lakeDir": ".lake",
  "fixedToolchain": false}
