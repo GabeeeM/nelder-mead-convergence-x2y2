@@ -1,6 +1,7 @@
+# Development history (split5–split8 are earlier versions, not included in this repository):
 # split9.jl (from split8: scale/count states s, e, c are literals too (`sdefN`); node proofs use NMR3.node_get with
 # children `RT3.child t k`; transport by NMR3.rt_congr5) — keeps theorem statements short
-# split8.jl (from split7: run pieces are again separate theorems, so that Lean checks them in parallel)
+# split8.jl (from split7: run pieces are again separate theorems, so that Lean checks them in parallel; the final run is single-threaded, Elab.async false)
 # split7.jl (from split6: states P/R are literal definitions `sdefP`/`sdefR` (LoaderR6) with kernel-checked
 # equations `.eq`; a split node's proof is transported back to the expression states by NMR3.rt_congr)
 # split6.jl (from split5: small children / run pieces inlined, proofs by decide inside the parent theorem; big sub

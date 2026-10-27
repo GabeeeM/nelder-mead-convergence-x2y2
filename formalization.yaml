@@ -29,14 +29,14 @@ sources:
     location: "Section 4 (McKinnon's question)"
     relationship: "background"
     note: "Poses the question answered here and proves convergence of the restricted method (no expansions)."
-    author_endorsement: "other"
+    author_endorsement: "not-contacted"
   - title: "Convergence properties of the Nelder–Mead simplex method in low dimensions"
     authors: ["Jeffrey C. Lagarias", "James A. Reeds", "Margaret H. Wright", "Paul E. Wright"]
     id: "SIAM J. Optim. 9 (1998) 112–147"
     type: "paper"
     location: "Algorithm NM (definition of the method formalized as NM.step)"
     relationship: "background"
-    author_endorsement: "other"
+    author_endorsement: "not-contacted"
 
 related_formalizations: []
 
@@ -69,7 +69,7 @@ automation:
         and wrote the Lean checker and its soundness proof.
       cost:
         wall_time: "about 15 days for the producing session, including a 25.6 h final kernel check"
-        hardware: "API model; a 12-core workstation CPU (at most 8 cores, 40 GB RAM) for Julia and Lean"
+        hardware: "API model; a 12-core workstation CPU (normally at most 8 cores, 40 GB RAM) for Julia and Lean"
       prompting_notes: >-
         The operator did not suggest the problem, the proof idea or any Lean code. The session was resumed
         three times after interruptions (out of memory, usage limit, expired login).

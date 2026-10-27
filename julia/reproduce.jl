@@ -1,4 +1,4 @@
-# reproduce.jl — reproduces every number reported in PROOF.md from the exact certificate streams, and rebuilds
+# reproduce.jl — reproduces all the counts reported in PROOF.md (cells, chunks, theorems) from the exact certificate streams, and rebuilds
 # the Lean certificate data that Proof.lean checks.
 #
 #   julia --project=julia julia/reproduce.jl   # run from the repo root: stream statistics + k-d coverage + Lean data (tmp/data_final9.lean)

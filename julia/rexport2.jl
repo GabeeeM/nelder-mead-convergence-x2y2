@@ -1,5 +1,5 @@
 # rexport2.jl — exact recovery-tree certificates with symbolic Rx runs (multi-part tracking), mirroring the
-# planned Lean checker NMR2.  State after the path = Σ_p c_p · (W_p z0)/σ with c_p ≥ 0, Σ c_p = 1 (parts W_p);
+# Lean checker NMR2 (lean/RecCert2.lean).  State after the path = Σ_p c_p · (W_p z0)/σ with c_p ≥ 0, Σ c_p = 1 (parts W_p);
 # rows are per-part functionals r_p with Σ_p c_p r_p(z0) ≥ 0; every certificate (shared multipliers y) is checked
 # part by part with chk on the cell.  A run node (branch 2) replaces "Rx forever-then-exit" by, for each κ-piece and
 # parity, the exit state  w = Σ λ_i E_i(z_j)  (even) or M_Rx(...) (odd), E_0 = id and E_1, E_2 the piece's vertex maps.

@@ -52,7 +52,7 @@ zstd -d --long=27 Proof.lean.zst            # or rebuild it, see below
 systemd-run --user --scope -p MemoryMax=40G lake env lean Proof.lean
 ```
 
-The check is single-threaded and took 25.6 hours with a peak of about 35 GB RAM. The output ends with
+The check is single-threaded and took 25.6 hours with a peak of about 36 GB RAM (35.7 GB). The output ends with
 
 ```
 'NM.mckinnon_x2y2' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -74,7 +74,18 @@ julia --project=julia julia/reproduce.jl     # prints all counts, writes tmp/dat
 ./assemble.sh tmp/data_final9.lean Proof.lean
 ```
 
-This rebuilds `Proof.lean` byte-for-byte (`sha256sum -c Proof.lean.sha256`).
+This rebuilds `Proof.lean` byte-for-byte (check with `sha256sum -c Proof.lean.sha256`; that file and
+`SHA256SUMS`, for the two archives, are also attached to the release).
+
+## Known errata in source comments
+
+The Lean sources are kept exactly as verified, so two docstrings in `lean/NM.lean` are noted here instead of
+edited. Neither affects any statement or proof.
+
+- `step_keep12`: "not below the old second value" should read "above the old second value" (the hypothesis
+  is strict).
+- `step_vals`: the docstring also mentions "the new point has value below the old worst", but the theorem
+  states only the three `≤` inequalities.
 
 ## How it was found
 
