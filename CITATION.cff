@@ -5,6 +5,7 @@ authors:
   - family-names: Mack
     given-names: Gabriel Alan
     orcid: "https://orcid.org/0009-0008-7111-6779"
+doi: "10.5281/zenodo.23680640"
 date-released: 2026-10-27
 repository-code: "https://github.com/GabeeeM/nelder-mead-convergence-x2y2"
 license: Apache-2.0

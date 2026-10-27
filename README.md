@@ -1,5 +1,7 @@
 # Nelder–Mead converges on x² + y² (McKinnon's question)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23680640.svg)](https://doi.org/10.5281/zenodo.23680640)
+
 A Lean 4 / Mathlib proof that **the original Nelder–Mead method, including expansion steps, converges to the
 minimizer of f(x, y) = x² + y² from every nondegenerate starting triangle**. This answers the first part of the
 question left open in
